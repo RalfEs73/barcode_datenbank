@@ -6,7 +6,7 @@
 
 
 # Systemweit (Machine) – benötigt Admin
-    # [Environment]::SetEnvironmentVariable("PB_IDENTITY","user@essbaumer.de","Machine")
+    # [Environment]::SetEnvironmentVariable("PB_IDENTITY","benutzer@email.de","Machine")
     # [Environment]::SetEnvironmentVariable("PB_PASSWORD","KENNWORT","Machine")
     # Get-ChildItem Env:PB_IDENTITY, Env:PB_PASSWORD
 
