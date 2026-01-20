@@ -70,7 +70,7 @@ try {
     $produkt    = Read-NonEmpty "Produktname eingeben"
 
     if ($barcode -notmatch '^\d+$') {
-        Write-Error "Der Barcode sollte nur aus Ziffern bestehen (anpassbar)."
+        Write-Error "Der Barcode sollte nur aus Ziffern bestehen."
         exit 2
     }
 
