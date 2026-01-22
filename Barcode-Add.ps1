@@ -68,6 +68,7 @@ try {
     $barcode    = Read-NonEmpty "Barcode eingeben"
     $hersteller = Read-NonEmpty "Hersteller eingeben"
     $produkt    = Read-NonEmpty "Produktname eingeben"
+    $Quantity   = Read-NonEmpty "Menge eingeben"
 
     if ($barcode -notmatch '^\d+$') {
         Write-Error "Der Barcode sollte nur aus Ziffern bestehen."
@@ -93,7 +94,8 @@ try {
         Barcode    = $barcode
         Hersteller = $hersteller
         Produkt    = $produkt
-    }
+        Quantity   = $Quantity
+        }
     if ($UseCreatedBy) { $payload.createdBy = $userId }  # Relation-Feld (optional)
 
     $createUri = "$PbBaseUrl/api/collections/$Collection/records"
@@ -108,6 +110,7 @@ try {
             Barcode    = $resp.Barcode
             Hersteller = $resp.Hersteller
             Produkt    = $resp.Produkt
+            Quantity   = $resp.Quantity
             Created    = $resp.created
             Updated    = $resp.updated
         } | Format-List

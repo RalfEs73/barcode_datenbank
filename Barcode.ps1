@@ -37,7 +37,7 @@ try {
 
     if ($null -ne $resp.items -and $resp.items.Count -gt 0) {
         $resp.items |
-            Select-Object id, Barcode, Hersteller, Produkt,created, updated
+            Select-Object id, Barcode, Hersteller, Produkt, Quantity, Markets, created, updated
     }
     else {
         Write-Host "Keine Treffer für '$Barcode' (Mode=$Mode)." -ForegroundColor Yellow
