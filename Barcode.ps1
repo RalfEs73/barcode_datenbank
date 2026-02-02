@@ -19,7 +19,7 @@ param(
     [ValidateSet('Exact','Contains')]
     [string]$Mode = 'Exact',
 
-    [string]$PbBaseUrl = "https://pocketbase.ralfes.cloud/",
+    [string]$PbBaseUrl = "https://pocketbase.ralfes.cloud",
     [string]$Collection = "Barcode_Datenbank",
     [int]$PerPage = 5
 )
@@ -29,6 +29,7 @@ switch ($Mode) {
     'Exact'      { $filterRaw = "Barcode='$Barcode'" }
     'Contains'   { $filterRaw = "Barcode?~'$Barcode'" }   # enthält (case-insensitive)
 }
+
 $filter = [System.Uri]::EscapeDataString($filterRaw)
 $uri = "$PbBaseUrl/api/collections/$Collection/records?filter=$filter&perPage=$PerPage"
 
